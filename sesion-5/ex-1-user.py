@@ -11,7 +11,8 @@ def count_a(seq):
 
 # Main program
 
-s = "AGTACACTGGT"
+s = str(input("Enter the sequence: "))
+s = s.upper()
 na = count_a(s)
 print("The are {} As in the sequence".format(na))
 
