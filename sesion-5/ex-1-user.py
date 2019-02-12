@@ -21,3 +21,5 @@ tl = len(s)
 
 print("This sequence is {} bases in length".format(tl))
 print("The percentages of As is {}%".format(round(100.0 * na/tl, 1)))
+
+#solve problem with null string!!!
