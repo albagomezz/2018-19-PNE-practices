@@ -1,0 +1,5 @@
+TAGC....
+S1(seq)
+S2 = S1.reverse()
+S3 = S2.complement() ??????
+S3.strbase --- Server
