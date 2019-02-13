@@ -11,7 +11,7 @@ My phone IP address at URJC is: 10.0.54.77
 
 To check computer IP: terminal, write :ifconfig
 
-My computer IP address: 212.128.253.84
+My computer IP address: 212.128.253.93
 
 Teacher's IP: 212.128.253.64
 
