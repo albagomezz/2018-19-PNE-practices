@@ -1,13 +1,15 @@
 def fibonacci(n):
-    if n <= 0:
-        return print("0")
+    if n <= 1:
+        return n
     else:
-        x= (n-1)+(n-2)
+        x = fibonacci(n-1)+fibonacci(n-2)
         return x
-num = int(input("Enter the number of term: "))
+
 def fibonacci_sum(n):
     i = 0
     for a in range(n):
-        i = fibonacci(n)+i+1
+        i = fibonacci(n)+i
     return print(i)
+
+num = int(input("Enter the number of term: "))
 fibonacci_sum(num)
