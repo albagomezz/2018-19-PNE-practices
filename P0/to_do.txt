@@ -1,0 +1,3 @@
+fibonacci.py (It prints the first n terms of the fibonacci series. The n parameter is a constant inside de code)
+fibonacci_sum.py (Adding the fibonacci terms from 1 to n. The n parameter should be enter by the user)
+
