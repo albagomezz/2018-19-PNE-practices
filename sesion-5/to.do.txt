@@ -1,2 +1,2 @@
-exercise-1.py: why I get an error? Review
-do exercise-2.py
+*exercise-1.py: why I get an error? Review
+*do exercise-2.py
