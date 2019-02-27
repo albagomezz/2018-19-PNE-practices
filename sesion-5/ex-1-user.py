@@ -14,12 +14,13 @@ def count_a(seq):
 s = str(input("Enter the sequence: "))
 s = s.upper()
 na = count_a(s)
-print("The are {} As in the sequence".format(na))
+print("There are {} As in the sequence".format(na))
 
 # Calculate the total length
 tl = len(s)
 
 print("This sequence is {} bases in length".format(tl))
-print("The percentages of As is {}%".format(round(100.0 * na/tl, 1)))
-
-#solve problem with null string!!!
+try:
+    print("The percentages of As is {}%".format(round(100.0 * na/tl, 1)))
+except ZeroDivisionError:
+    print("The percentages of As is 0%")
