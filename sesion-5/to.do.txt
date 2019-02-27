@@ -1,0 +1,1 @@
+exercise-1.py: why I get an error? Review
