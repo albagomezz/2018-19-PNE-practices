@@ -1,0 +1,33 @@
+Client-Server model
+Client and Server
+Client request server, server response. Client start the communication.
+Many clients and servers. Both are computers(or smartphones, tablets, etc.)
+The both are sending a message, but are not physically communicated (through internet)
+Inside the internet there are many isolated computers connected to each other, divided in groups (networks).
+To send the message first we have to identify the machine through where we are going to communicate(IP address, network interface)
+The IP address change depending on where you connect
+
+My phone IP address at URJC is: 10.0.54.77
+
+To check computer IP: terminal, write :ifconfig
+
+My computer IP address: 212.128.253.93
+
+Teacher's IP: 212.128.253.64
+
+Ping time to 8.8.8.8:
+time=3.72 ms
+
+Ping time to my computer:
+time=0.057 ms (57 us)
+
+Ping time to Jaime's computer (computer in the same network):
+time=0.644 ms (644 us)
+
+Ping time to my mobile phone:
+time=120.588 ms
+
+Ping time to www.google.es: (172.217.16.227)
+time=3.69 ms
+
+Port: identifies any of the available servers.Adding more info
