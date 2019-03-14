@@ -6,7 +6,7 @@ s1 = Seq(input("seq 1 is: "))
 s2 = Seq(input("seq 2 is: "))
 
 s3 = s1.complement()
-s4 = s3.reverse()
+s4 = s2.reverse()
 
 sequences = [s1, s2, s3, s4]
 
