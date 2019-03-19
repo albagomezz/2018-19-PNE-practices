@@ -5,8 +5,7 @@ f = open("people.json", 'r')
 
 people = json.load(f)
 
-total = len(people["People"]
-            )
+total = len(people["People"])
 print("Total people in the data base: {}".format(total))
 
 for num in people["People"]:
