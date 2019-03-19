@@ -1,0 +1,27 @@
+{
+  "People": [
+    {"Firstname": "Adolf",
+      "Lastname": "Hitler",
+      "Age": 129,
+      "Phonenumber" : [
+        {"number" : "00000", "type": "home"},
+        {"number": "11111", "type": "government"}
+      ]},
+    {"Firstname": "Iósif",
+      "Lastname": "Stalin",
+      "Age": 140,
+      "Phonenumber" : [
+        {"number" : "00001", "type": "home"},
+        {"number": "11110", "type": "government"}
+      ]},
+    {"Firstname": "Benito",
+      "Lastname": "Mussolini",
+      "Age": 135,
+      "Phonenumber" : [
+        {"number" : "00011", "type": "home"},
+        {"number": "11100", "type": "government"}
+      ]}]}
+
+
+
+
