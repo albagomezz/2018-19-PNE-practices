@@ -8,20 +8,11 @@ class Seq:
         return l
 
     def complement(self):
-        c = self.strbases
-        for index, i in enumerate(c):
-            if i == 'A':
-                c = c[:index]+c[:index].replace('A', 'T')
-
-            elif i == 'T':
-                c = c[:index]+c[:index].replace('T', 'A')
-
-            elif i == 'C':
-                c = c[:index] + c[:index].replace('C', 'G')
-
-            elif i == 'G:':
-                c = c[:index] + c[:index].replace('G', 'C')
-        return c
+        bases_c = ""
+        change = {"A": "T", "T": "A", "G": "C", "C": "G"}
+        for i in self.strbases:
+            bases_c += change[i]
+        return bases_c
 
     def reverse(self):
         r = self.strbases[::-1]
