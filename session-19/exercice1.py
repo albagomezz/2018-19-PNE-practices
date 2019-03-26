@@ -86,9 +86,7 @@ num = len(categories)
 
 # -- Print the received URL
 print("There are {} categories".format(num))
-print("The categories of the jokes are:")
-for i in categories:
-    print (i)
+print("The categories of the jokes are:", categories['value'])
 
 
 # -- API information
