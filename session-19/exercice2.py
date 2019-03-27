@@ -1,14 +1,14 @@
-# Getting information about the weather of
-# a location introduced by the user
+# Example of getting information about the weather of
+# a location
 
 import http.client
 import json
 
-capital = input("Introduce the name of a capital to print weather info: ")
-
 # -- API information
 HOSTNAME = "www.metaweather.com"
-ENDPOINT = "/api/location/search/?query={}".format(capital)
+ENDPOINT = "/api/location/search/?query="
+
+LOCATION_WOEID = "london"
 METHOD = "GET"
 
 # -- Here we can define special headers if needed
@@ -18,11 +18,11 @@ headers = {'User-Agent': 'http-client'}
 # -- NOTICE it is an HTTPS connection!
 # -- If we do not specify the port, the standar one
 # -- will be used
-conn = http.client.HTTPConnection(HOSTNAME)  #important check if here we have HTTPConnection or HTTPSConnection. If it doesnt work, try the other
+conn = http.client.HTTPSConnection(HOSTNAME)
 
 # -- Send the request. No body (None)
 # -- Use the defined headers
-conn.request(METHOD, ENDPOINT, None, headers)
+conn.request(METHOD, ENDPOINT + LOCATION_WOEID + '/', None, headers)
 
 # -- Wait for the server's response
 r1 = conn.getresponse()
@@ -42,7 +42,10 @@ conn.close()
 # print(text_json)
 
 # -- Generate the object from the json file
-number = json.loads(text_json)
+weather = json.loads(text_json)
 
-# -- Print the received URL
-print("The total number of jokes is:", number['woeid'])
+# -- Get the data
+place = weather[0]['title']
+
+print()
+print("Place: {}".format(place))
