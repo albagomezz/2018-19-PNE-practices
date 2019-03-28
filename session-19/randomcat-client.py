@@ -10,6 +10,7 @@ HOSTNAME = "aws.random.cat"
 ENDPOINT = "/meow"
 METHOD = "GET"
 
+
 # -- Here we can define special headers if needed
 headers = {'User-Agent': 'http-client'}
 
