@@ -25,10 +25,7 @@ class Seq:
     def perc(self, base):
         a = len(self.strbases)
         num = self.strbases.count(base)
-        if a>0:
-            p=round(100.0*num/a, 1)
-            return p
-        else:
-            p=0
-            return p
+        p=round(100.0*num/a, 1)
+        return p
+
 
