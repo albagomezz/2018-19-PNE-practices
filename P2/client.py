@@ -1,39 +1,25 @@
-#first we define the class
-
-class Seq:
-    def __init__(self, strbases):
-        self.strbases = strbases
-
-    def complement(self):
-        bases_c = ""
-        change = {"A": "T", "T": "A", "G": "C", "C": "G"}
-        for i in self.strbases:
-            bases_c += change[i]
-        return bases_c
-
-    def reverse(self):
-        r = self.strbases[::-1]
-        return Seq(r)
-
-
-#then we create our main program
-
 import socket
+from P1.Seq import Seq
 
-connected = True
-while connected:
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    print("Socket created")
+# Create a socket for communicating with the server
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    PORT = 8081
-    IP = "212.128.253.105"
+print('Socket created')
+PORT = 8080
+IP = "192.168.1.136"
 
+i = True
+while i:
+    seq = Seq(input('Introduce the sequence: '))
+    comp = seq.complement()
+    rev = seq.reverse()
+
+    #Connections needed:
     s.connect((IP, PORT))
+    s.send(str.encode("The complement of the sequence is: ", comp, "\n"))
+    s.send(str.encode("The reverse of the sequence is: ",rev))
+    msg = s.recv(2048).decode('utf-8')
+    print('MESSAGE FROM THE SERVER:')
+    print(msg)
 
-    s1 = Seq(input("Introduce the sequence to obtain the reverse-complement sequence: "))
-    s2 = Seq(s1.reverse()).complement()
-    print("The reverse-complement sequence is: ", s2)
-
-    s.send(str.encode(s2))
     s.close()
-    print("The sequence has been sent to the server")
