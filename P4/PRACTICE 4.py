@@ -1,8 +1,8 @@
 import socket
 import termcolor
 
-IP = "212.128.253.78"
-PORT = 8083
+IP = "10.3.50.22"
+PORT = 8084
 MAX_OPEN_REQUESTS = 5
 
 
@@ -18,26 +18,10 @@ def process_client(cs):
     print("Request message: ")
     termcolor.cprint(msg, 'green')
 
-    # Build the HTTP response message. It has the following lines
-    # Status line
-    # header
-    # blank line
-    # Body (content to send)
-
-    # This new contents are written in HTML language
-    contents = """
-    <!DOCTYPE html>
-    <html lang="en" dir="ltr">
-      <head>
-        <meta charset="utf-8">
-        <title>This is the index</title>
-      </head>
-      <body style="background-color: yellow;">
-        <h1>INDEX SERVER</h1>
-        <a href="blue.html">Blue server</a>
-      </body>
-    </html>
-    """
+    # Here we have to read client message, decode it as a string. Split lines of msg and make a loop for index 1
+    f = open("index.html", "r")
+    contents = f.read()
+    f.close()
 
     # -- Everything is OK
     status_line = "HTTP/1.1 200 OK\r\n"
@@ -80,4 +64,3 @@ while True:
     # Service the client
     process_client(clientsocket)
 
-# como hago q cambie de pagina? del index a la azul por ejemplo
