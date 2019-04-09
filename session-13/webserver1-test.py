@@ -2,7 +2,7 @@ import http.server
 import socketserver
 
 # Define the Server's port
-PORT = 8003
+PORT = 8004
 
 class TestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
