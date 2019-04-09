@@ -2,7 +2,7 @@ import socket
 import termcolor
 
 IP = "192.168.137.133"
-PORT = 8084
+PORT = 8085
 MAX_OPEN_REQUESTS = 5
 
 
@@ -18,10 +18,9 @@ def process_client(cs):
     print("Request message: ")
     termcolor.cprint(msg, 'green')
 
-    # Here we have to read client message, decode it as a string. Split lines of msg and make a loop for index 1
+    # Here we read client message. We split the lines of msg, omitting the parts we don't need.
     message = msg.splitlines()
-    message = message[0].lstrip("GET ")
-    message = message[0].rstrip(" HTTP/1.1")
+    message = message[0].lstrip("GET ").rstrip(" HTTP/1.1")
 
     if message == "":
         f = open("index.html", "r")
