@@ -1,7 +1,7 @@
 import socket
 import termcolor
 
-IP = "10.3.50.22"
+IP = "192.168.137.133"
 PORT = 8084
 MAX_OPEN_REQUESTS = 5
 
@@ -19,9 +19,30 @@ def process_client(cs):
     termcolor.cprint(msg, 'green')
 
     # Here we have to read client message, decode it as a string. Split lines of msg and make a loop for index 1
-    f = open("index.html", "r")
-    contents = f.read()
-    f.close()
+    message = msg.splitlines()
+    message = message[0].lstrip("GET ")
+    message = message[0].rstrip(" HTTP/1.1")
+
+    if message == "":
+        f = open("index.html", "r")
+        contents = f.read()
+        f.close()
+
+    elif message == "/pink":
+        f = open("pink.html", "r")
+        contents = f.read()
+        f.close()
+
+    elif message == "/blue":
+        f = open("blue.html", "r")
+        contents = f.read()
+        f.close()
+
+    else:
+        f = open("error.html", "r")
+        contents = f.read()
+        f.close()
+
 
     # -- Everything is OK
     status_line = "HTTP/1.1 200 OK\r\n"
