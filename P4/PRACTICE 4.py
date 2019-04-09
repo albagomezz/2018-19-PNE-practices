@@ -20,6 +20,7 @@ def process_client(cs):
 
     # Here we read client message. We split the lines of msg, omitting the parts we don't need.
     message = msg.splitlines()
+    print(message)
     message = message[0].lstrip("GET ").rstrip(" HTTP/1.1")
 
     if message == "":
