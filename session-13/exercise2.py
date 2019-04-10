@@ -22,20 +22,10 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         # It is a happy server: It always returns a message saying
         # that everything is ok
 
-        # Message to send back to the clinet
-        contents = self.requestline.lstrip("GET ").rstrip(" HTTP/1.1")
-        if contents == "":
+        # Message to send back to the client
+        contents = self.requestline.split(" ")
+        if contents[1] == "/":
             f = open("index.html", "r")
-            contents = f.read()
-            f.close()
-
-        elif contents == "/pink":
-            f = open("pink.html", "r")
-            contents = f.read()
-            f.close()
-
-        elif contents == "/blue":
-            f = open("blue.html", "r")
             contents = f.read()
             f.close()
 
