@@ -23,8 +23,8 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         # that everything is ok
 
         # Message to send back to the client
-        contents = self.requestline.split(" ")
-        if contents[1] == "/":
+        c = self.requestline.split(" ")
+        if c[1] == "/":
             f = open("index.html", "r")
             contents = f.read()
             f.close()
