@@ -24,18 +24,18 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         # Message to send back to the client
         c = self.requestline.splitlines()
-         message[0].lstrip("GET ").rstrip(" HTTP/1.1")
-        if c[1] == "/":
+        c = c[0].lstrip("GET ").rstrip(" HTTP/1.1")
+        if c == "/":
             f = open("index.html", "r")
             contents = f.read()
             f.close()
 
-        elif c[1] == "/pink":
+        elif c == "/pink":
             f = open("pink.html", "r")
             contents = f.read()
             f.close()
-
-        elif c[1] == "/blue":
+            
+        elif c == "/blue":
             f = open("blue.html", "r")
             contents = f.read()
             f.close()
