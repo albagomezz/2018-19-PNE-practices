@@ -15,19 +15,19 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         c = self.requestline.split(" ")
         if c[1] == '/':
             file = open('index.html', 'r')
-            content = file.read()
+            contents = file.read()
             file.close()
         else:
             file = open('error.html', 'r')
-            content = file.read()
+            contents = file.read()
             file.close()
 
         self.send_response(200)
         self.send_header('Content-Type', 'text/html')
-        self.send_header('Content-Length', len(str.encode(content)))
+        self.send_header('Content-Length', len(str.encode(contents)))
         self.end_headers()
 
-        self.wfile.write(str.encode(content))
+        self.wfile.write(str.encode(contents))
 
         return
 
