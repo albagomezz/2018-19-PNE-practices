@@ -18,12 +18,12 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             contents = f.read()
             f.close()
 
-        elif c == '/pink':
+        elif c[1] == '/pink':
             f = open('pink.html', 'r')
             contents = f.read()
             f.close()
 
-        elif c == '/blue':
+        elif c[1] == '/blue':
             f = open('blue.html', 'r')
             contents = f.read()
             f.close()
