@@ -41,7 +41,6 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         return
 
-
 Handler = TestHandler
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
