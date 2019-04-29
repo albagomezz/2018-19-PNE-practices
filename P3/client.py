@@ -1,11 +1,11 @@
 import socket
 
 # SERVER IP, PORT
-IP = "10.3.51.103"
+IP = "192.168.1.37"
 PORT = 8080
 
 # String written by the user
-msg = """AAACCGTTT\nlen\ncountA\ncountC"""
+msg = """AAACCGTTT\nreverse\ncomplement\npercT"""
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 

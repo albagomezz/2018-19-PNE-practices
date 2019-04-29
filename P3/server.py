@@ -3,10 +3,11 @@ from Seq import Seq
 import socket
 
 # IP, PORT
-IP = "10.3.51.103"
+IP = "192.168.1.37"
 PORT = 8080
 MAX_OPEN_REQUEST = 5
 
+list_resp = []
 
 def process_client(client3socket):
     # Reading the message from the client.
@@ -24,17 +25,53 @@ def process_client(client3socket):
                 break
             else: continue
 
-    elif :
+        if len(list_resp) == 0:
+            sequence = Seq(list_msg[0])
+            list_msg = list_msg[1:]
+            list_resp.append("OK")
+            for a in list_msg:
+                if a == "len":
+                    resp = sequence.len()
+                elif a == "percA":
+                    resp = sequence.perc("A")
+                    list_resp.append(resp)
+                elif a == "percC":
+                    resp = sequence.perc("C")
+                    list_resp.append(resp)
+                elif a == "percG":
+                    resp = sequence.perc("G")
+                    list_resp.append(resp)
+                elif a == "percT":
+                    resp = sequence.perc("T")
+                    list_resp.append(resp)
+                elif a == "complement":
+                    resp = sequence.complement()
+                    list_resp.append(resp)
+                elif a == "countA":
+                    resp = sequence.count("A")
+                    list_resp.append(resp)
+                elif a == "countC":
+                    resp = sequence.count("C")
+                    list_resp.append(resp)
+                elif a == "countT":
+                    resp = sequence.count("T")
+                    list_resp.append(resp)
+                elif a == "countG":
+                    resp = sequence.count("G")
+                    list_resp.append(resp)
+                elif a == "reverse":
+                    resp = sequence.reverse()
+                    list_resp.append(resp)
+                else:
+                    resp = "There was an error"
+                    list_resp.append(resp)
 
-        print(answer_list)
-        answer_list = str(answer_list)
-        msg_send = answer_list.replace(",", "\n").strip("[").strip("]")
+        print(list_resp)
+        list_answer = str(list_resp)
+        msg_send = list_answer.replace(",", "\n").strip("[").strip("]")
         client3socket.send(str.encode(msg_send))
 
     client3socket.close()
-
-
-# A partir de aqui esta hecho
 
 
 # Create a socket for connecting to the clients
