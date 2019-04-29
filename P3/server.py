@@ -1,33 +1,54 @@
-import socket
-from P1.Seq import Seq
 
+from Seq import Seq
+import socket
+
+# IP, PORT
+IP = "10.3.51.103"
 PORT = 8080
-IP = "10.3.50.22"
 MAX_OPEN_REQUEST = 5
 
-def process_client(cs):
-    #reading the message from the client
-    msg = cs.recv(2048).decode("utf-8")
 
-    print("Message from the client: {}".format(msg))
-    #sending the message back to the client (bc we are an echo server)
-    cs.send(str.encode(msg))
+def process_client(client3socket):
+    # Reading the message from the client.
+    msg = client3socket.recv(2048).decode("utf-8")
+    list_msg = msg.split('\n')
+    first = msg[0]
+
+    if first == "":
+        client3socket.send(str.encode("ALIVE"))
+    else:
+        for i in first:
+            if i != "A" and i != "C" and i != "G" and i != "T" :
+                not_valid = "Sequence not valid"
+                client3socket.send(str.encode(not_valid))
+                break
+            else: continue
+
+    elif :
+
+        print(answer_list)
+        answer_list = str(answer_list)
+        msg_send = answer_list.replace(",", "\n").strip("[").strip("]")
+        client3socket.send(str.encode(msg_send))
+
+    client3socket.close()
+
+
+# A partir de aqui esta hecho
+
 
 # Create a socket for connecting to the clients
-serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+thirdsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-serversocket.bind((IP, PORT))
+thirdsocket.bind((IP, PORT))
+thirdsocket.listen(MAX_OPEN_REQUEST)
 
-serversocket.listen(MAX_OPEN_REQUEST)
-
-print("Socket ready: {}".format(serversocket))
+print("Socket ready at: {}".format(thirdsocket))
 
 while True:
-    print("Waiting for connections at {}, {} ".format(IP, PORT))
-    (clientsocket, address) = serversocket.accept()
+    print("Waiting for connections at: {}, {}".format(IP, PORT))
+    (client3socket, address) = thirdsocket.accept()
+    # Wait until client connects
 
-    # Connection received. A new socket is returned for communicating with the client
     print("Attending connections from client: {}".format(address))
-
-    # This server do nothing. The new socket is closed
-    clientsocket.close()
+    process_client(client3socket)
