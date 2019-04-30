@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Main page</title>
+  </head>
+  <body>
+    <form action="myserver" method="get">
+      Type the sequence:  <input type="text" name="msg">
+      <br><br>
+      Mark for calculating the length of the sequence:
+      <input type="checkbox" name="chk">
+      <br><br>
+        Choose operation:
+      <select name="operation">
+        <option value="count">Count</option>
+        <option value="perc">Percentage</option>
+      Choose base por count or percentage:
+      <input type="radio" name="base" value="A" checked> A
+      <input type="radio" name="base" value="C"> C
+      <input type="radio" name="base" value="T"> T
+      <input type="radio" name="base" value="G"> G
+      <br><br>
+      Options: <br>
+      </select>
+       <br>
+        <input type="submit"/>
+    </form>
+
+  </body>
+</html>
