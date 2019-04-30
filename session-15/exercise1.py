@@ -4,7 +4,7 @@ import termcolor
 
 # we are using http library (always from now on)
 # Define the Server's port
-PORT = 8001
+PORT = 8002
 
 
 # Class with our Handler. It is a called derived from BaseHTTPRequestHandler
@@ -12,17 +12,27 @@ PORT = 8001
 class TestHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
-        #always the ' self' parameter because it is a class
-        """This method is called whenever the client invokes the GET method
-        in the HTTP protocol request"""
-
         # Print the request line
         termcolor.cprint(self.requestline, 'green')
 
-        # Open the form1.html file
-        f = open("form2.html", 'r')
-        contents = f.read()
+        if self.path.startswith("/main-page")or self.path == "/":
+            f = open("form1.html", "r")
+            contents = f.read()
+        elif self.path.startswith("/echo"):
+            msg= self.path.split("=")
+            ff = open("echo.html", "r")
+            contents = ff.read()
+            contents += msg[1]
+            contents += """</p>
+                                        <a href="main-page">The main page</a>
+    
+                                    </body>
+                                    </html>
+                                    """
 
+        else:
+            fff = open("error.html", "r")
+            contents = fff.read()
         # Generating the response message
         self.send_response(200)  # -- Status line: OK!
 
