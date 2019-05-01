@@ -19,7 +19,16 @@ class Seq:
         return Seq(r)
 
     def count(self, base):
-        c = self.strbases.count(base)
+        for i in self:
+            if i == "A":
+                number_a = number_a + 1
+            elif i == "C":
+                number_c = number_c + 1
+            elif i == "G":
+                number_g = number_g + 1
+            elif i == "T":
+                number_t = number_t + 1
+        c = {"A": number_a, "C": number_c, "G": number_g,"T": number_t}
         return c
 
     def perc(self, base):
@@ -27,5 +36,4 @@ class Seq:
         num = self.strbases.count(base)
         p=round(100.0*num/a, 1)
         return p
-
 
