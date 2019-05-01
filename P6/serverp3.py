@@ -1,7 +1,8 @@
-from Seq import Seq
 import http.server
 import socketserver
 import termcolor
+from Seq import Seq
+
 
 # we are using http library (always from now on)
 # Define the Server's port
@@ -37,14 +38,21 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             if a == True:
                 ff = open("echo.html", "r")
                 contents = ff.read()
-                sequence = Seq(msg[1])
+                sequence = Seq(list1[1])
+                letter = msg[-1]
+                if "on" in list1:
+                    contents += "Length" + str(len(sequence))
 
-            if "on" in msg:
+                elif "count" in list1:
+                    number = str(sequence.count(letter))
+                    contents += letter + "=" + number
 
-                contents += len(sequence)
+                elif "perc" in list1:
+                    perc = str(sequence.perc(letter))
+                    contents += letter + "=" + perc
 
 
-            contents += """</p>
+                contents += """</p>
                                         <a href="main-page">The main page</a>
 
                                     </body>
