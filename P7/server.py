@@ -16,3 +16,10 @@ conn = http.client.HTTPConnection(SERVER, PORT)
 
 conn.request("GET", "/sequence/id/ENSG00000165879?content-type=application/json")
 
+# -- Read the response message from the server
+
+r1 = conn.getresponse()
+
+# -- Print the status line
+
+print("Response received!: {} {}\n".format(r1.status, r1.reason))
