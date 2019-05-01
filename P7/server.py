@@ -1,7 +1,7 @@
 import http.client
 import json
 import termcolor
-from Seq import Seq
+from P7.Seq import Seq
 
 PORT = 8003
 SERVER = 'http://rest.ensembl.org/'
@@ -54,20 +54,9 @@ for a in sequence:
         number2 = number2 + 1
 
 # 3-Most popular base
-number_a = 0
-number_c = 0
-number_g = 0
-number_t = 0
-for i in sequence:
-    if i == "A":
-        number_a = number_a + 1
-    elif i == "C":
-        number_c = number_c + 1
-    elif i == "G":
-        number_g = number_g + 1
-    elif i == "T":
-        number_t = number_t + 1
-list_max = [number_a,number_c,number_g,number_t]
+number_bases = count(sequence)
+
+list_max =
 max_number = max(list_max, key=int)
 
 # 4-Percentage most popular base
